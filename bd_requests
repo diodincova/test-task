@@ -14,6 +14,8 @@ ORDER BY orders_count DESC
 
 #Выведите имена клиентов, чей email содержит «@mail.ru» выводить с количеством заказов равным 0.
 
-SELECT c.name FROM clients c
-LEFT JOIN orders o ON c.id = o.clients_id
-WHERE c.email LIKE '%@mail.ru' AND o.id IS NULL;
+SELECT c.Name
+FROM Clients c
+LEFT JOIN Orders o ON c.ID = o.Clients_id
+WHERE c.Email LIKE  '%@mail.ru'
+AND o.ID IS NULL
