@@ -1,12 +1,16 @@
 #Выведите имена клиентов и количество их заказов, созданных в марте 2015 года и содержащих один или больше товаров из списка (id: 151515,151617,151514), отсортируйте результат по убыванию суммы заказа.
 
-SELECT c.name, COUNT(o.id) orders_count FROM clients c
-JOIN orders o ON c.id = o.clients_id
-JOIN products p ON o.id = p.order_id
-WHERE p.id IN (151515,151617,151514) AND ctime >= UNIX_TIMESTAMP('2015-03-01 00:00:00') AND ctime < UNIX_TIMESTAMP('2015-04-01 00:00:00')
-GROUP BY c.name
-HAVING orders_count >= 1
-ORDER BY orders_count DESC;
+SELECT c.Name, COUNT( o.id ) orders_count
+FROM Clients c
+JOIN Orders o ON c.id = o.Clients_id
+JOIN Products p ON o.id = p.Order_id
+WHERE p.id
+IN ( 151515, 151617, 151514 ) 
+AND Ctime >= UNIX_TIMESTAMP(  '2015-03-01 00:00:00' ) 
+AND Ctime < UNIX_TIMESTAMP(  '2015-04-01 00:00:00' ) 
+GROUP BY c.Name
+HAVING orders_count >=1
+ORDER BY orders_count DESC 
 
 #Выведите имена клиентов, чей email содержит «@mail.ru» выводить с количеством заказов равным 0.
 
